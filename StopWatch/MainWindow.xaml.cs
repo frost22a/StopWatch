@@ -28,15 +28,15 @@ namespace StopWatch
         TimeSpan timeSpan;
         public MainWindow()
         {
-            InitializeComponent();                         
+            InitializeComponent();
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
+            dispatcherTimer.Tick += stopWatchTick;
+            dispatcherTimer.Start();
         }
-
+                
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            stopWatch.Start();
-            timeSpan = stopWatch.Elapsed;
-            stopWatchView.Text = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds / 10);
+            stopWatch.Start();           
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -48,9 +48,17 @@ namespace StopWatch
             
         }
 
-        private void btnStart_Copy1_Click(object sender, RoutedEventArgs e)
+        private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             stopWatch.Reset();
+        }
+
+        private void stopWatchTick(object sender, EventArgs e)
+        {
+            timeSpan = stopWatch.Elapsed;
+            string currentTime  = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds / 10);
+            stopWatchView.Text = currentTime;
         }
     }
 }
