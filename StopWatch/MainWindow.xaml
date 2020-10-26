@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StopWatch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="275" Width="346">
     <Grid>
+        <Button x:Name="btnStart" Content="START" HorizontalAlignment="Left" Margin="40,131,0,0" VerticalAlignment="Top" Height="32" Width="70" Click="btnStart_Click"/>
+        <Button x:Name="btnStop" Content="STOP" HorizontalAlignment="Left" Margin="135,131,0,0" VerticalAlignment="Top" Height="32" Width="70" Click="btnStop_Click"/>
+        <Button x:Name="btnStart_Copy1" Content="RESET" HorizontalAlignment="Left" Margin="226,131,0,0" VerticalAlignment="Top" Height="32" Width="70" Click="btnStart_Copy1_Click"/>
+        <TextBox x:Name="stopWatchView" HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" Height="33" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Century Gothic" FontSize="24"/>
 
     </Grid>
 </Window>
